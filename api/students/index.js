@@ -56,7 +56,7 @@ module.exports = async (req, res) => {
       return res.status(200).json({ success: true, count: rows.length, data: rows });
     } catch (error) {
       console.error('Error fetching students:', error);
-      return res.status(500).json({ success: false, message: 'Server error while fetching students.' });
+      return res.status(500).json({ success: false, message: 'Server error while fetching students: ' + error.message });
     }
   }
 
@@ -97,7 +97,7 @@ module.exports = async (req, res) => {
       });
     } catch (error) {
       console.error('Error adding student:', error);
-      return res.status(500).json({ success: false, message: 'Server error while adding student.' });
+      return res.status(500).json({ success: false, message: 'Server error while adding student: ' + error.message });
     }
   }
 

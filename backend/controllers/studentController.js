@@ -104,7 +104,7 @@ const addStudent = async (req, res) => {
     console.error('Error adding student:', error);
     return res.status(500).json({
       success: false,
-      message: 'Server error while adding student.'
+      message: 'Server error while adding student: ' + error.message
     });
   }
 };
