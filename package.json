@@ -1,0 +1,9 @@
+{
+  "name": "student-management-system",
+  "version": "1.0.0",
+  "description": "Student Management System - ECE 3rd Year Project",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "mysql2": "^3.6.0"
+  }
+}
