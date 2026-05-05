@@ -46,7 +46,13 @@ module.exports = async (req, res) => {
   if (req.method === 'OPTIONS') return res.status(200).end();
 
   // Extract and validate the :id param
-  const { id } = req.query;
+  let id = req.query.id;
+  if (!id) {
+    // Fallback: extract ID from the end of the URL (e.g., /api/students/1)
+    const urlParts = req.url.split('?')[0].split('/');
+    id = urlParts[urlParts.length - 1];
+  }
+
   if (!id || isNaN(id))
     return res.status(400).json({ success: false, message: 'Invalid student ID.' });
 
